@@ -38,7 +38,7 @@ function saveRecord(record) {
     transactionObjectStore.add(record);
 }
 
-function uploadPizza() {
+function uploadTransaction() {
     // open a transaction on your db
     const transaction = db.transaction(['new_transaction'], 'readwrite');
 
@@ -80,3 +80,6 @@ function uploadPizza() {
         }
     };
 }
+
+// listen for app coming back online
+window.addEventListener('online', uploadTransaction);
